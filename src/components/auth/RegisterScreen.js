@@ -55,7 +55,7 @@ const RegisterScreen = () => {
     <div>
       <h3 className="auth__title">Register</h3>
       
-      <form>
+      <form className="animate__animated animate__fadeIn animate__faster">
 
         {
           msgError && 

@@ -1,17 +1,25 @@
 import React from 'react'
 import Sidebar from './Sidebar'
-// import NothingSelected from './NothingSelected'
 import NoteScreen from '../notes/NoteScreen'
+import { useSelector } from 'react-redux'
+import NothingSelected from './NothingSelected'
 
 const JournalScreen = () => {
+  // Recorderis: Permite extraer los estados del store.
+  const {active} = useSelector(state => state.notes) 
+
   return (
     <div className="journal__main-content">
       <Sidebar/>
       
 
       <main>
-        {/* <NothingSelected /> */}
-        <NoteScreen/> 
+        {
+          active
+            ? <NoteScreen/> 
+            : <NothingSelected />
+        }   
+
       </main>
     </div>
   )

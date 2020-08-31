@@ -2,6 +2,7 @@ import { types } from "../types/types";
 import Swal from 'sweetalert2';
 import {firebase, googleAuthProvider} from '../firebase/firebaseConfig';
 import { startLoading, finishLoading } from "./ui";
+import { notesLougout } from "./notes";
 
 // TAREA ASINCRONA
 export const startRegisterWithEmailPasswordName=(email,password,name) => {
@@ -79,6 +80,7 @@ export const startLogout= () => {
     await firebase.auth().signOut();
     
     dispatch(logout());
+    dispatch(notesLougout());
       
   }
 }
